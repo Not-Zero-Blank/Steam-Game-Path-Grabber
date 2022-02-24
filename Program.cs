@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 public class SteamPathGrabber
 {
-    public static void Grab(string SteamGameToGrab)
+    public static string Grab(string SteamGameToGrab)
     {
         try
         {
@@ -29,12 +29,12 @@ public class SteamPathGrabber
                 }
                 count++;
             }
+            throw new Exception("Game coudnt be Found or isnt Installed!");
         }
         catch (Exception e)
         {
-            Console.WriteLine("Failed: "+e);
+            throw e;
         }
-        Console.ReadLine();
     }
     static string GetSteamPath()
     {
